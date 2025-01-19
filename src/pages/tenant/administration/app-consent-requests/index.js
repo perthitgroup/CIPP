@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { Layout as DashboardLayout } from "/src/layouts/index.js";
 import { CippTablePage } from "/src/components/CippComponents/CippTablePage.jsx";
 import {
@@ -12,7 +12,6 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useForm } from "react-hook-form";
 import CippFormComponent from "/src/components/CippComponents/CippFormComponent";
-import { useSettings } from "/src/hooks/use-settings";
 
 const simpleColumns = [
   "Tenant",
@@ -28,7 +27,6 @@ const apiUrl = "/api/ListAppConsentRequests";
 const pageTitle = "App Consent Requests";
 
 const Page = () => {
-  const tenantFilter = useSettings().currentTenant;
   const formControl = useForm({
     defaultValues: {
       requestStatus: "All",
@@ -91,14 +89,6 @@ const Page = () => {
       title={pageTitle}
       apiUrl={apiUrl}
       simpleColumns={simpleColumns}
-      filters={[
-        // Filter for showing only pending requests
-        {
-          filterName: "Pending requests",
-          value: [{ id: "requestStatus", value: "Pending" }],
-          type: "column",
-        },
-      ]}
       queryKey={`AppConsentRequests-${JSON.stringify(filterParams)}`}
       apiData={{
         ...filterParams,
@@ -113,23 +103,23 @@ const Page = () => {
           "reviewedBy", // Reviewed by
           "reviewedJustification", // Reviewed Reason
         ],
+        actions: [
+          {
+            label: "Review in Entra",
+            link: `https://entra.microsoft.com/[TenantFilter]/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AccessRequests`,
+            color: "info",
+            target: "_blank",
+            external: true,
+          },
+          {
+            label: "Approve in Entra",
+            link: "[consentUrl]",
+            color: "info",
+            target: "_blank",
+            external: true,
+          },
+        ],
       }}
-      actions={[
-        {
-          label: "Review in Entra",
-          link: `https://entra.microsoft.com/${tenantFilter}/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AccessRequests`,
-          color: "info",
-          target: "_blank",
-          external: true,
-        },
-        {
-          label: "Approve in Entra",
-          link: "[consentUrl]",
-          color: "info",
-          target: "_blank",
-          external: true,
-        },
-      ]}
     />
   );
 };

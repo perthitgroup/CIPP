@@ -12,24 +12,16 @@ const Page = () => {
       url: "/api/ExecTeamsVoicePhoneNumberAssignment",
       data: {
         PhoneNumber: "TelephoneNumber",
+        TenantFilter: "TenantFilter",
         PhoneNumberType: "NumberType",
         locationOnly: false,
       },
-      fields: [
-        {
-          type: "autoComplete",
-          name: "input",
-          label: "Select User",
-          multiple: false,
-          creatable: false,
-          api: {
-            url: "/api/listUsers",
-            labelField: (input) => `${input.displayName} (${input.userPrincipalName})`,
-            valueField: "userPrincipalName",
-          },
-        },
-      ],
-      confirmText: "Select the User to assign the phone number to.",
+      modalDropdown: {
+        url: "/api/listUsers?TenantFilter=TenantFilter",
+        labelField: "displayName",
+        valueField: "userPrincipalName",
+      },
+      confirmText: "Select the User to assign.",
     },
     {
       label: "Unassign User",
@@ -37,6 +29,7 @@ const Page = () => {
       url: "/api/ExecRemoveTeamsVoicePhoneNumberAssignment",
       data: {
         PhoneNumber: "TelephoneNumber",
+        TenantFilter: "TenantFilter",
         AssignedTo: "AssignedTo",
         PhoneNumberType: "NumberType",
       },
@@ -48,20 +41,14 @@ const Page = () => {
       url: "/api/ExecTeamsVoicePhoneNumberAssignment",
       data: {
         PhoneNumber: "TelephoneNumber",
+        TenantFilter: "TenantFilter",
         locationOnly: true,
       },
-      fields: [
-        {
-          type: "autoComplete",
-          name: "input",
-          label: "Emergency Location",
-          api: {
-            url: "/api/ListTeamsLisLocation",
-            labelField: "Description",
-            valueField: "LocationId",
-          },
-        },
-      ],
+      modalDropdown: {
+        url: "/api/ListTeamsLisLocation?TenantFilter=TenantFilter",
+        labelField: "Description",
+        valueField: "LocationId",
+      },
       confirmText: "Select the Emergency Location.",
     },
   ];

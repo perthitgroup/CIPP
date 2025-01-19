@@ -52,7 +52,6 @@ const Page = () => {
       apiData={{
         Endpoint: "deviceAppManagement/managedAppPolicies",
         $orderby: "displayName",
-        manualPagination: true,
       }}
       apiDataKey="Results"
       actions={actions}

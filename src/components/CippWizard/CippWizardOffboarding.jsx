@@ -300,7 +300,6 @@ export const CippWizardOffboarding = (props) => {
         onPreviousStep={onPreviousStep}
         onNextStep={onNextStep}
         formControl={formControl}
-        replacementBehaviour="removeNulls"
       />
     </Stack>
   );

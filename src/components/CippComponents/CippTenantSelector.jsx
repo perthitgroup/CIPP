@@ -217,7 +217,7 @@ export const CippTenantSelector = (props) => {
             icon: <Laptop />,
           },
           {
-            label: "SharePoint Portal",
+            label: "Sharepoint Portal",
             link: `https://admin.microsoft.com/Partner/beginclientsession.aspx?CTID=${currentTenant?.addedFields?.customerId}&CSDEST=SharePoint`,
             icon: <Share />,
           },

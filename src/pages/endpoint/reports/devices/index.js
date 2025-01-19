@@ -10,6 +10,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "syncDevice",
       },
@@ -20,6 +21,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "rebootNow",
       },
@@ -30,6 +32,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "locateDevice",
       },
@@ -40,6 +43,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecGetLocalAdminPassword",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "azureADDeviceId",
       },
       confirmText: "Are you sure you want to retrieve the local admin password?",
@@ -49,6 +53,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "RotateLocalAdminPassword",
       },
@@ -59,6 +64,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecGetRecoveryKey",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "azureADDeviceId",
       },
       confirmText: "Are you sure you want to retrieve the Bitlocker keys?",
@@ -68,6 +74,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "WindowsDefenderScan",
         quickScan: false,
@@ -79,6 +86,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "WindowsDefenderScan",
         quickScan: true,
@@ -90,6 +98,7 @@ const Page = () => {
       type: "POST",
       url: "/api/ExecDeviceAction",
       data: {
+        TenantFilter: "TenantFilter",
         GUID: "id",
         Action: "windowsDefenderUpdateSignatures",
       },

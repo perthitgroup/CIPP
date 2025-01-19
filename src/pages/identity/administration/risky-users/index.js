@@ -9,7 +9,7 @@ const Page = () => {
   const actions = [
     {
       label: "Dismiss Risk",
-      type: "GET",
+      type: "POST",
       icon: <Clear />,
       url: "/api/ExecDismissRiskyUser",
       data: { userId: "id", userDisplayName: "userDisplayName" },

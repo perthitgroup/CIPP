@@ -99,19 +99,6 @@ const Page = () => {
         actions={actions}
         offCanvas={offCanvas}
         simpleColumns={columns}
-        filters={[
-          {
-            filterName: "Included tenants",
-            //true or false filters by yes/no
-            value: [{ id: "Excluded", value: "No" }],
-            type: "column",
-          },
-          {
-            filterName: "Excluded tenants",
-            value: [{ id: "Excluded", value: "Yes" }],
-            type: "column",
-          },
-        ]}
       />
       <CippApiDialog
         title="Force Refresh Tenant"

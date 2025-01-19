@@ -7,7 +7,7 @@ const Page = () => {
   const actions = [
     {
       label: "Restore Object",
-      type: "GET",
+      type: "POST",
       url: "/api/ExecRestoreDeleted",
       data: { TenantFilter: "Tenant", ID: "id" },
       confirmText: "Are you sure you want to restore this user?",
@@ -46,6 +46,7 @@ const Page = () => {
     <CippTablePage
       title={pageTitle}
       apiUrl="/api/ListDeletedItems"
+      apiDataKey="Results"
       actions={actions}
       offCanvas={offCanvas}
       simpleColumns={columns}

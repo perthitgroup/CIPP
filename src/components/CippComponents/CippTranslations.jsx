@@ -35,7 +35,7 @@ export const CippTranslations = {
   portal_intune: "Intune Portal",
   portal_security: "Security Portal",
   portal_compliance: "Compliance Portal",
-  portal_sharepoint: "SharePoint Portal",
+  portal_sharepoint: "Sharepoint Portal",
   "@odata.type": "Type",
   roleDefinitionId: "GDAP Role",
   FromIP: "From IP",

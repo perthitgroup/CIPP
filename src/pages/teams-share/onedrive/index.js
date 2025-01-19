@@ -11,28 +11,14 @@ const Page = () => {
       url: "/api/ExecSharePointPerms",
       data: {
         UPN: "ownerPrincipalName",
-        URL: "webUrl",
         RemovePermission: false,
       },
       confirmText: "Select the User to add to this user's OneDrive permissions",
-      fields: [
-        {
-          type: "autoComplete",
-          name: "onedriveAccessUser",
-          label: "Select User",
-          multiple: false,
-          creatable: false,
-          api: {
-            url: "/api/listUsers",
-            labelField: (onedriveAccessUser) =>
-              `${onedriveAccessUser.displayName} (${onedriveAccessUser.userPrincipalName})`,
-            valueField: "userPrincipalName",
-            addedField: {
-              displayName: "displayName",
-            },
-          },
-        },
-      ],
+      dropdown: {
+        url: "/api/listUsers",
+        labelField: "displayName",
+        valueField: "userPrincipalName",
+      },
     },
     {
       label: "Remove permissions from OneDrive",
@@ -40,28 +26,15 @@ const Page = () => {
       url: "/api/ExecSharePointPerms",
       data: {
         UPN: "ownerPrincipalName",
-        URL: "webUrl",
+        TenantFilter: "TenantFilter",
         RemovePermission: true,
       },
       confirmText: "Select the User to remove from this user's OneDrive permissions",
-      fields: [
-        {
-          type: "autoComplete",
-          name: "onedriveAccessUser",
-          label: "Select User",
-          multiple: false,
-          creatable: false,
-          api: {
-            url: "/api/listUsers",
-            labelField: (onedriveAccessUser) =>
-              `${onedriveAccessUser.displayName} (${onedriveAccessUser.userPrincipalName})`,
-            valueField: "userPrincipalName",
-            addedField: {
-              displayName: "displayName",
-            },
-          },
-        },
-      ],
+      dropdown: {
+        url: "/api/listUsers?TenantFilter=TenantFilter",
+        labelField: "displayName",
+        valueField: "userPrincipalName",
+      },
     },
   ];
 

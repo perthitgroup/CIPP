@@ -91,7 +91,7 @@ const EditGroup = () => {
         <CippFormPage
           formControl={formControl}
           queryKey={`ListGroups-${groupId}`}
-          title={`Group: ${groupInfo.data?.groupInfo?.displayName || ''}`}
+          title="Group"
           formPageType="Edit"
           backButtonTitle="Group Overview"
           postUrl="/api/EditGroup"

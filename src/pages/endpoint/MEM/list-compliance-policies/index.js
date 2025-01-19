@@ -9,11 +9,12 @@ const Page = () => {
   const actions = [
     {
       label: "Create template based on policy",
-      type: "GET",
+      type: "POST",
       url: "/api/AddIntuneTemplate",
       data: {
+        TenantFilter: "Tenant",
         ID: "id",
-        URLName: "URLName",
+        URLName: "deviceCompliancePolicies",
       },
       confirmText: "Are you sure you want to create a template based on this policy?",
       icon: <Book />,
@@ -21,10 +22,11 @@ const Page = () => {
     },
     {
       label: "Assign to All Users",
-      type: "GET",
+      type: "POST",
       url: "/api/ExecAssignPolicy",
       data: {
         AssignTo: "allLicensedUsers",
+        TenantFilter: "Tenant",
         ID: "id",
         type: "deviceCompliancePolicies",
       },
@@ -34,10 +36,11 @@ const Page = () => {
     },
     {
       label: "Assign to All Devices",
-      type: "GET",
+      type: "POST",
       url: "/api/ExecAssignPolicy",
       data: {
         AssignTo: "AllDevices",
+        TenantFilter: "Tenant",
         ID: "id",
         type: "deviceCompliancePolicies",
       },
@@ -47,10 +50,11 @@ const Page = () => {
     },
     {
       label: "Assign Globally (All Users / All Devices)",
-      type: "GET",
+      type: "POST",
       url: "/api/ExecAssignPolicy",
       data: {
         AssignTo: "AllDevicesAndUsers",
+        TenantFilter: "Tenant",
         ID: "id",
         type: "deviceCompliancePolicies",
       },
@@ -60,9 +64,10 @@ const Page = () => {
     },
     {
       label: "Delete Policy",
-      type: "GET",
+      type: "POST",
       url: "/api/RemovePolicy",
       data: {
+        TenantFilter: "Tenant",
         ID: "id",
         URLName: "deviceCompliancePolicies",
       },
@@ -94,7 +99,6 @@ const Page = () => {
         $orderby: "displayName",
         $count: true,
         $expand: "assignments",
-        manualPagination: true,
       }}
       actions={actions}
       offCanvas={offCanvas}

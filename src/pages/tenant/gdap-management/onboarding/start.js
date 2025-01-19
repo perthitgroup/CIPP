@@ -205,8 +205,8 @@ const Page = () => {
       });
 
       var missingDefaults = [];
-      cippDefaults.forEach((defaultRole) => {
-        if (!relationshipRoles?.find((role) => defaultRole.value === role.roleDefinitionId)) {
+      relationshipRoles.forEach((role) => {
+        if (!cippDefaults?.find((defaultRole) => defaultRole.value === role.roleDefinitionId)) {
           missingDefaults.push(role);
         }
       });
